@@ -1,0 +1,28 @@
+# Normalise everything to LF in the repository. Without this the working tree
+# flips line endings per platform and every file looks modified on Windows.
+* text=auto eol=lf
+
+*.kt      text eol=lf
+*.kts     text eol=lf
+*.java    text eol=lf
+*.md      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.toml    text eol=lf
+*.properties text eol=lf
+
+# Scripts keep the endings their interpreter needs.
+gradlew   text eol=lf
+*.sh      text eol=lf
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+
+*.jar     binary
+*.png     binary
+*.jpg     binary
+*.gif     binary
+*.ico     binary
+*.zip     binary
+
+# Generated, and noisy in review.
+kotlin-js-store/yarn.lock linguist-generated=true -diff

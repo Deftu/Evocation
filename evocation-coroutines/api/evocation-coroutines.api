@@ -1,0 +1,8 @@
+public final class dev/deftu/evocation/coroutines/EventFlowsKt {
+	public static final fun boundTo (Ldev/deftu/evocation/Subscription;Lkotlinx/coroutines/CoroutineScope;)Ldev/deftu/evocation/Subscription;
+	public static final fun events (Ldev/deftu/evocation/AbstractEventBus;Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;I)Lkotlinx/coroutines/flow/Flow;
+	public static synthetic fun events$default (Ldev/deftu/evocation/AbstractEventBus;Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;IILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun subscribeIn (Ldev/deftu/evocation/AbstractEventBus;Lkotlinx/coroutines/CoroutineScope;Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;Lkotlin/jvm/functions/Function2;)Ldev/deftu/evocation/Subscription;
+	public static synthetic fun subscribeIn$default (Ldev/deftu/evocation/AbstractEventBus;Lkotlinx/coroutines/CoroutineScope;Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ldev/deftu/evocation/Subscription;
+}
+

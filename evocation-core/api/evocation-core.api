@@ -1,0 +1,219 @@
+public abstract class dev/deftu/evocation/AbstractEventBus {
+	public final fun addInterceptor (Ldev/deftu/evocation/DispatchInterceptor;)Ldev/deftu/evocation/Subscription;
+	public final fun checkNotRegistered (Ljava/lang/Object;)V
+	public final fun getSubscriptionCount ()I
+	public final fun isRegistered (Ljava/lang/Object;)Z
+	public final fun mayHaveSubscribers (Lkotlin/reflect/KClass;)Z
+	public final fun on (Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventHandler;)Ldev/deftu/evocation/Subscription;
+	public final fun on (Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;Ldev/deftu/evocation/EventFilter;Ldev/deftu/evocation/EventHandler;)Ldev/deftu/evocation/Subscription;
+	public final fun on (Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;Ldev/deftu/evocation/EventHandler;)Ldev/deftu/evocation/Subscription;
+	public final fun onDeadEvent (Ldev/deftu/evocation/DeadEventHandler;)Ldev/deftu/evocation/Subscription;
+	public final fun post (Ljava/lang/Object;)V
+	public final fun register (Ljava/lang/Object;)Ldev/deftu/evocation/Subscription;
+	public final fun register (Ljava/lang/Object;Z)Ldev/deftu/evocation/Subscription;
+	public final fun registerHandler (Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;Ljava/lang/Object;Ldev/deftu/evocation/SubscriberMethod;Z)Ldev/deftu/evocation/Subscription;
+	public static synthetic fun registerHandler$default (Ldev/deftu/evocation/AbstractEventBus;Lkotlin/reflect/KClass;Ldev/deftu/evocation/EventPriority;Ljava/lang/Object;Ldev/deftu/evocation/SubscriberMethod;ZILjava/lang/Object;)Ldev/deftu/evocation/Subscription;
+	public final fun unregister (Ljava/lang/Object;)V
+}
+
+public final class dev/deftu/evocation/BindingStrategy : java/lang/Enum {
+	public static final field Fast Ldev/deftu/evocation/BindingStrategy;
+	public static final field Reflective Ldev/deftu/evocation/BindingStrategy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/deftu/evocation/BindingStrategy;
+	public static fun values ()[Ldev/deftu/evocation/BindingStrategy;
+}
+
+public abstract interface class dev/deftu/evocation/DeadEventHandler {
+	public abstract fun handle (Ljava/lang/Object;)V
+}
+
+public abstract interface class dev/deftu/evocation/DispatchFilter {
+	public abstract fun shouldStop (Ljava/lang/Object;)Z
+}
+
+public abstract interface class dev/deftu/evocation/DispatchInterceptor {
+	public abstract fun afterPost (Ljava/lang/Object;)V
+	public abstract fun beforePost (Ljava/lang/Object;)V
+}
+
+public final class dev/deftu/evocation/DispatchInterceptor$DefaultImpls {
+	public static fun afterPost (Ldev/deftu/evocation/DispatchInterceptor;Ljava/lang/Object;)V
+	public static fun beforePost (Ldev/deftu/evocation/DispatchInterceptor;Ljava/lang/Object;)V
+}
+
+public abstract interface class dev/deftu/evocation/DispatchStrategy {
+}
+
+public final class dev/deftu/evocation/DispatchStrategy$Generated : dev/deftu/evocation/DispatchStrategy {
+	public static final field Companion Ldev/deftu/evocation/DispatchStrategy$Generated$Companion;
+	public static final field DEFAULT_FUSE_AFTER I
+	public static final field DEFAULT_MAX_SUBSCRIBERS I
+	public static final field DEFAULT_MIN_SUBSCRIBERS I
+	public fun <init> ()V
+	public fun <init> (III)V
+	public synthetic fun <init> (IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun copy (III)Ldev/deftu/evocation/DispatchStrategy$Generated;
+	public static synthetic fun copy$default (Ldev/deftu/evocation/DispatchStrategy$Generated;IIIILjava/lang/Object;)Ldev/deftu/evocation/DispatchStrategy$Generated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFuseAfter ()I
+	public final fun getMaxSubscribers ()I
+	public final fun getMinSubscribers ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/deftu/evocation/DispatchStrategy$Generated$Companion {
+}
+
+public final class dev/deftu/evocation/DispatchStrategy$Interpreted : dev/deftu/evocation/DispatchStrategy {
+	public static final field INSTANCE Ldev/deftu/evocation/DispatchStrategy$Interpreted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/deftu/evocation/EventBus : dev/deftu/evocation/AbstractEventBus {
+	public final fun on (Ljava/lang/Class;Ldev/deftu/evocation/EventHandler;)Ldev/deftu/evocation/Subscription;
+	public final fun on (Ljava/lang/Class;Ldev/deftu/evocation/EventPriority;Ldev/deftu/evocation/EventHandler;)Ldev/deftu/evocation/Subscription;
+	public static synthetic fun on$default (Ldev/deftu/evocation/EventBus;Ljava/lang/Class;Ldev/deftu/evocation/EventPriority;Ldev/deftu/evocation/EventHandler;ILjava/lang/Object;)Ldev/deftu/evocation/Subscription;
+	public final fun registerStatic (Ljava/lang/Class;)Ldev/deftu/evocation/Subscription;
+	public final fun registerStatic (Ljava/lang/Class;Ldev/deftu/evocation/invokers/Invoker;)Ldev/deftu/evocation/Subscription;
+	public static synthetic fun registerStatic$default (Ldev/deftu/evocation/EventBus;Ljava/lang/Class;Ldev/deftu/evocation/invokers/Invoker;ILjava/lang/Object;)Ldev/deftu/evocation/Subscription;
+	public final fun registerWith (Ljava/lang/Object;)Ldev/deftu/evocation/Subscription;
+	public final fun registerWith (Ljava/lang/Object;Ldev/deftu/evocation/invokers/Invoker;)Ldev/deftu/evocation/Subscription;
+	public final fun registerWith (Ljava/lang/Object;Ldev/deftu/evocation/invokers/Invoker;Z)Ldev/deftu/evocation/Subscription;
+	public static synthetic fun registerWith$default (Ldev/deftu/evocation/EventBus;Ljava/lang/Object;Ldev/deftu/evocation/invokers/Invoker;ZILjava/lang/Object;)Ldev/deftu/evocation/Subscription;
+}
+
+public final class dev/deftu/evocation/EventBusBuilder {
+	public fun <init> ()V
+	public final fun binding (Ldev/deftu/evocation/BindingStrategy;)Ldev/deftu/evocation/EventBusBuilder;
+	public final fun build ()Ldev/deftu/evocation/EventBus;
+	public final fun dispatch (Ldev/deftu/evocation/DispatchStrategy;)Ldev/deftu/evocation/EventBusBuilder;
+	public final fun exceptionHandler (Ldev/deftu/evocation/ExceptionHandler;)Ldev/deftu/evocation/EventBusBuilder;
+	public final fun getBinding ()Ldev/deftu/evocation/BindingStrategy;
+	public final fun getDispatch ()Ldev/deftu/evocation/DispatchStrategy;
+	public final fun getDispatchFilter ()Ldev/deftu/evocation/DispatchFilter;
+	public final fun getExceptionHandler ()Ldev/deftu/evocation/ExceptionHandler;
+	public final fun noRuntimeCodeGeneration ()Ldev/deftu/evocation/EventBusBuilder;
+	public final fun setBinding (Ldev/deftu/evocation/BindingStrategy;)V
+	public final fun setDispatch (Ldev/deftu/evocation/DispatchStrategy;)V
+	public final fun setDispatchFilter (Ldev/deftu/evocation/DispatchFilter;)V
+	public final fun setExceptionHandler (Ldev/deftu/evocation/ExceptionHandler;)V
+	public final fun stopDispatchWhen (Ldev/deftu/evocation/DispatchFilter;)Ldev/deftu/evocation/EventBusBuilder;
+}
+
+public final class dev/deftu/evocation/EventBusBuilderKt {
+	public static final fun bus (Lkotlin/jvm/functions/Function1;)Ldev/deftu/evocation/EventBus;
+	public static synthetic fun bus$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/deftu/evocation/EventBus;
+}
+
+public abstract interface class dev/deftu/evocation/EventFilter {
+	public abstract fun matches (Ljava/lang/Object;)Z
+}
+
+public abstract interface class dev/deftu/evocation/EventHandler {
+	public abstract fun handle (Ljava/lang/Object;)V
+}
+
+public final class dev/deftu/evocation/EventPriority : java/lang/Enum {
+	public static final field HIGH Ldev/deftu/evocation/EventPriority;
+	public static final field HIGHEST Ldev/deftu/evocation/EventPriority;
+	public static final field LOW Ldev/deftu/evocation/EventPriority;
+	public static final field LOWEST Ldev/deftu/evocation/EventPriority;
+	public static final field NORMAL Ldev/deftu/evocation/EventPriority;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Ldev/deftu/evocation/EventPriority;
+	public static fun values ()[Ldev/deftu/evocation/EventPriority;
+}
+
+public abstract interface annotation class dev/deftu/evocation/EventSubscriber : java/lang/annotation/Annotation {
+	public abstract fun priority ()Ldev/deftu/evocation/EventPriority;
+}
+
+public abstract interface class dev/deftu/evocation/ExceptionHandler {
+	public abstract fun handle (Ljava/lang/Exception;)V
+}
+
+public final class dev/deftu/evocation/GeneratedSubscribers {
+	public static final field INSTANCE Ldev/deftu/evocation/GeneratedSubscribers;
+	public final fun install (Lkotlin/reflect/KClass;Ldev/deftu/evocation/SubscriberBinder;)V
+	public final fun isInstalled (Lkotlin/reflect/KClass;)Z
+}
+
+public abstract interface class dev/deftu/evocation/SubscriberBinder {
+	public abstract fun bind (Ldev/deftu/evocation/AbstractEventBus;Ljava/lang/Object;Z)Ldev/deftu/evocation/Subscription;
+}
+
+public abstract interface class dev/deftu/evocation/SubscriberMethod {
+	public abstract fun invoke (Ljava/lang/Object;Ljava/lang/Object;)V
+}
+
+public abstract interface class dev/deftu/evocation/Subscription : java/lang/AutoCloseable {
+	public abstract fun cancel ()V
+	public abstract fun close ()V
+	public abstract fun isActive ()Z
+}
+
+public final class dev/deftu/evocation/Subscription$DefaultImpls {
+	public static fun close (Ldev/deftu/evocation/Subscription;)V
+}
+
+public final class dev/deftu/evocation/SubscriptionBuilder {
+	public final fun filter (Ldev/deftu/evocation/EventFilter;)Ldev/deftu/evocation/SubscriptionBuilder;
+	public final fun on (Ldev/deftu/evocation/EventHandler;)Ldev/deftu/evocation/Subscription;
+	public final fun priority (Ldev/deftu/evocation/EventPriority;)Ldev/deftu/evocation/SubscriptionBuilder;
+}
+
+public final class dev/deftu/evocation/SubscriptionBuilderKt {
+	public static final fun subscription (Ldev/deftu/evocation/AbstractEventBus;Lkotlin/reflect/KClass;)Ldev/deftu/evocation/SubscriptionBuilder;
+}
+
+public final class dev/deftu/evocation/SubscriptionKt {
+	public static final fun combined (Ljava/util/Collection;)Ldev/deftu/evocation/Subscription;
+}
+
+public final class dev/deftu/evocation/internal/WeakRef {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun get ()Ljava/lang/Object;
+}
+
+public abstract interface class dev/deftu/evocation/invokers/ClassDefiner {
+	public abstract fun define (Ljava/lang/String;[BLjava/lang/Class;)Ljava/lang/Class;
+}
+
+public final class dev/deftu/evocation/invokers/ClassDefiners {
+	public static final field INSTANCE Ldev/deftu/evocation/invokers/ClassDefiners;
+	public final fun getChildLoader ()Ldev/deftu/evocation/invokers/ClassDefiner;
+	public static final fun getDefault ()Ldev/deftu/evocation/invokers/ClassDefiner;
+	public static final fun setDefault (Ldev/deftu/evocation/invokers/ClassDefiner;)V
+}
+
+public abstract interface class dev/deftu/evocation/invokers/Invoker {
+	public abstract fun bind (Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;)Ldev/deftu/evocation/SubscriberMethod;
+}
+
+public final class dev/deftu/evocation/invokers/Invokers {
+	public static final field INSTANCE Ldev/deftu/evocation/invokers/Invokers;
+	public final fun getDefault ()Ldev/deftu/evocation/invokers/Invoker;
+	public final fun of (Ldev/deftu/evocation/BindingStrategy;)Ldev/deftu/evocation/invokers/Invoker;
+}
+
+public final class dev/deftu/evocation/invokers/LMFInvoker : dev/deftu/evocation/invokers/Invoker {
+	public fun <init> ()V
+	public fun bind (Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;)Ldev/deftu/evocation/SubscriberMethod;
+}
+
+public final class dev/deftu/evocation/invokers/ReflectionInvoker : dev/deftu/evocation/invokers/Invoker {
+	public fun <init> ()V
+	public fun bind (Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/reflect/Method;)Ldev/deftu/evocation/SubscriberMethod;
+}
+
+public abstract interface class dev/deftu/evocation/invokers/StaticSubscriberMethod {
+	public abstract fun invoke (Ljava/lang/Object;)V
+}
+
